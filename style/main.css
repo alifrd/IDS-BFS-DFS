@@ -1,12 +1,13 @@
 
 
-/* Font */
+/*Start Font */
 @import url('https://fonts.googleapis.com/css?family=Pompiere');
+/*End Font */
 
 
 
 
-/* general */
+/* Start General */
 html{
 	width: 100%;
 	height: 100%;
@@ -67,10 +68,12 @@ main.help > h5{
 main h3{
 	margin-top: 1%;
 }
+/* End general */
 
 
 
-/* Form Style*/
+
+/* Start Form Style*/
 form{
 	width: 35%;
 	margin: 0% auto;
@@ -160,10 +163,17 @@ form > input[type="submit"]:hover{
 	transition: all .4s;
 
 }
-*::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+*::placeholder { 
     color: #c9d0cf;
-    opacity: 1; /* Firefox */
+    opacity: 1; 
 }
+/* End Form Style*/
+
+
+
+
+
+/* ski :) */ 
 .link{
 	position: absolute;
 	background-color: black;
