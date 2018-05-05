@@ -1,7 +1,7 @@
 
 <?php 
 
-	
+	/*START NODE CLASS */
 	class Node 
 	{
 		public $element;
@@ -10,17 +10,19 @@
 		public $path_cost;
 		public $depth;
 
+		//CONSTRUCTOR
 		public function __construct($element,$parent,$action,$path_cost,$depth){
 			$this->element=$element;
 			$this->parent=$parent;
 			$this->action=$action;
 			$this->path_cost=$path_cost;
-			$this->depth=$depth;
-		
+			$this->depth=$depth;	
 		}	
+
 	}
-
-
+	/*END NODE CLASS */
+	
+	/*START TREE CLASS */
 	class Tree
 	{
 		public $root;
@@ -29,31 +31,29 @@
 		public $nodes=array();
 		public $STATE =array();
 
-
+		//build new node
 		protected function Allocate_Node($self,$parent_key,$action,$path_cost,$depth){
-	
-
 			$node = new Node($self,$parent_key,$action,$path_cost,$depth);					
 			$this->nodes[] = $node;														
-
-			if ($this->nodenum == 0) {	$this->root=$node; 	}							
+			if ($this->nodenum == 0) 
+				$this->root=$node;							
 			$this->nodenum++;
-
 		}	
 
 
 
-
+		//search node in nodes field with name
 		protected function Search_Node($goal_value){								
 			foreach ($this->nodes as $key => $obj) {
 				if ($obj->element==$goal_value) {
 					return $key;
 				}
-
 			}
 			return null;
 		}
 
+		
+		//search node in nodes field with object
 		protected function Search_Node_obj($goal_value){								
 			foreach ($this->nodes as $key => $obj) {
 				if ($obj==$goal_value) {
@@ -64,6 +64,8 @@
 			return null;
 		}
 
+
+		//find index of state in STATE filed
 		protected function Find_in_STATE($node_num,$element){								
 			for ($i=0; $i < $node_num ; $i++) { 
 				
@@ -74,7 +76,7 @@
 			return null;
 		}
 
-
+		//build tree with matrix for traverse
 		public function martix_to_tree($matrix,$node_num,$root,$target){
 
 
@@ -113,7 +115,7 @@
 		}
 
 
-		
+		//show path of traverse
 		protected function come_back($target_node){
 			$path=array();
 			$parent_key=$target_node->parent;
@@ -126,6 +128,7 @@
 			$this->show_path($path);
 		}
 
+		//print path of traverse
 		protected function show_path($path){
 
 			for ($i=sizeof($path)-1; $i >= 0; $i--) { 
@@ -137,6 +140,7 @@
 			
 		}
 
+		//Breadth First Search
 		public function BFS(){
 				
 			$node_queue = new SplQueue();
@@ -172,7 +176,7 @@
 			}
 		}
 
-
+		//Depth First Search
 		public function DFS(){
 			
 			$node_stack = new SplStack();
@@ -208,7 +212,7 @@
 
 			}
 		}
-
+		//Iterative Deepening Search
 		public function IDS($depth){
 			
 			$node_stack = new SplStack();
@@ -243,11 +247,10 @@
 				}
 
 			}
-		}
-
-
-		
+		}		
 	}
+	/*END TREE CLASS */
+	
 
 ?>
 

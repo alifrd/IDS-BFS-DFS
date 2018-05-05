@@ -4,14 +4,14 @@
         
 
 
-
+/* for Auto build of page*/
 function htmlbuilder(){
         
   if (isset($_GET['submit'])=="NEXT") {
     $num_string=array('One','Tow','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fiveteen','Sixteen','Seventeen','Eightteen','Nineteen');
               
             
-
+    //build page 2
     if ($_GET['submit']=="NEXT" && isset($_GET['Step_one']) ) {
         $state_number=$_GET['number'];
         $state_type=$_GET['type'];
@@ -29,7 +29,7 @@ function htmlbuilder(){
       }
 
 
-
+    //build page 3  
     if ($_GET['submit']=="NEXT"  && isset($_GET['Step_two']) ) {
         $state_names=array();
         $state_number=$_GET['number'];
@@ -84,7 +84,7 @@ function htmlbuilder(){
         echo "<br><br><input type=\"submit\" name=\"submit\" value=\"NEXT\"></form>";
       }
             
-
+      //build page 4
       if ($_GET['submit']=="NEXT" && isset($_GET['Step_three']) ) {
         $state_names=array();
         $state_number=$_GET['number'];
@@ -116,7 +116,7 @@ function htmlbuilder(){
       echo "<br><br><input type=\"submit\" name=\"submit\" value=\"NEXT\"></form>";
     }
           
-
+    //build page 5
     if ($_GET['submit']=="NEXT" && isset($_GET['Step_four']) ) {
         $state_names=array();
         global $matrix;
@@ -154,7 +154,8 @@ function htmlbuilder(){
     } 
       
   }
-        
+  
+    //build page 1     
     else{
     echo "<form action=\"index.php\">" ;
     echo "  <br><br>";
